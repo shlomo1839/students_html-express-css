@@ -3,47 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <title>Course Registration</title>
+    <style>
+        /* Basic page setup */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        /* Draws a nice box around the form */
+        fieldset {
+            background-color: white;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+        }
+
+        /* Title color */
+        legend h2 { color: #007bff; }
+
+        /* Keeps labels and inputs in a straight line */
+        table { width: 100%; }
+        td { padding: 10px 0; }
+
+        /* Makes input boxes look clean */
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Blue button that changes color when touched by mouse */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #0056b3; }
+    </style>
 </head>
 <body>
-    <h2>Course Registration</h2>
     <form action="/register" method="POST">
-
-        <label for="fullName">fullName:</label>
-        <input type="text" id="fullName" name="fullName" required>
-        <br />
-
-        <lable for="email">Email:</lable>
-        <input type="email" id="email" name="email" required>
-        <br />
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
-        <br />
-
-        <label>Gender:</label><br>
-        <input type="radio" id="male" name="gender" value="Male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="Female"><br />
-        <label for="female">Female</label><br />
-        <br />
-
-        <label for="course">Preferred Course:</label>
-        <select id="course" name="course">
-            <option value="Fullstack">Fullstack</option>
-            <option value="Cyber">Cyber</option>
-            <option value="Algorithms">Algorithms</option>
-            <option value="Java">Java</option>
-        </select>
-        <br />
-
-        <label>
-            <input type="checkbox" name="termsAccepted" required> I accept the terms and conditions
-        </label><br><br>
-        <br />
-
-        <button type="submit">Submit</button>
+        <fieldset>
+            <legend><h2>Course Registration</h2></legend>
+            <table>
+                <tr>
+                    <td><label for="fullName">Full Name:</label></td>
+                    <td><input type="text" id="fullName" name="fullName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age:</label></td>
+                    <td><input type="number" id="age" name="age" required></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="Male"> Male
+                        <input type="radio" id="female" name="gender" value="Female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="course">Course:</label></td>
+                    <td>
+                        <select id="course" name="course">
+                            <option value="Fullstack">Fullstack</option>
+                            <option value="Cyber">Cyber</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="termsAccepted" required> Accept Terms
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
     </form>
 </body>
 </html>
 
-    
+
+
+<!-- insted <br /> we use in tables to make it look arranged -->
+<!-- Using <fieldset> and <legend>: These tags that create a frame around the form with a title integrated within it, make it look like "app". -->
+<!-- ussing cellpadding create diff beteen the lines -->
+ <!-- used align="center" inside the table cell so that the button would be placed in the center of the form -->

@@ -7,7 +7,7 @@ const studentSchema = new mongoose.Schema({
     gender: String,
     course: String,
     termsAccepted: Boolean,
-    createdAt: Date
+    createdAt: { type: Date, default: Date.now }
 });
 
-export default studentSchema;
+export default mongoose.model('Student', studentSchema);
