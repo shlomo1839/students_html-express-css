@@ -17,15 +17,8 @@ app.use(express.static('public'));
 await mongoose.connect(`mongodb+srv://shlomo1839:4ym7tk4mdb@cluster0.kosyfnf.mongodb.net/collegeDB`);
 
 app.post("/register", async (req, res) => {
+    console.log(req.body)
     try {
-        const { fullName,  email, age } = req.body
-        
-        // bonus
-        if (!fullName || !email || !age ) {
-            console.log("Validation failed: Missing fields")
-            return res.status(400).send("Error: Please fill all required fields")
-        }
-
         if (req.body.termsAccepted === 'on') {
             req.body.termsAccepted = true;
         } else {
@@ -35,6 +28,7 @@ app.post("/register", async (req, res) => {
         console.log("Data received:", req.body);
         const student = new Student(req.body);
         await student.save();
+        console.log(student)
         res.send("Success")
     } catch (err) {
         console.error("The Error:", err);
