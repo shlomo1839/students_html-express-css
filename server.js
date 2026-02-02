@@ -21,8 +21,6 @@ app.post("/register", async (req, res) => {
     try {
         if (req.body.termsAccepted === 'on') {
             req.body.termsAccepted = true;
-        } else {
-            req.body.termsAccepted = false;
         }
     
         console.log("Data received:", req.body);

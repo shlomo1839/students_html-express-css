@@ -6,7 +6,7 @@ const studentSchema = new mongoose.Schema({
     age: Number,
     gender: String,
     course: String,
-    termsAccepted: Boolean,
+    termsAccepted: {type: Boolean, default: false},
     createdAt: { type: Date, default: Date.now }
 });
 
